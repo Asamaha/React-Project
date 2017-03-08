@@ -1,11 +1,24 @@
-var MyFrirstComponent=React.createClass({
-  render:function(){
-    return(
-      React.DOM.div(null,
-        React.DOM.h1(null,"This is my first component")
-      )
-    );
-  }
-});
+var MyTitleFactory = React.createFactory(MyTitle)
 
-ReactDOM.render(React.createElement(MyFrirstComponent),document.getElementById('app'));
+var MyFrirstComponent = React.createClass({
+  render: function () {
+    return (
+            div(null,
+                MyTitleFactory({
+                  title: 'props are the best', color: 'peru'
+                }),
+                MyTitleFactory({
+                  title: 'ahmad samaha', color: 'red'
+                }),
+                MyTitleFactory({
+                  title: 'i love it', color: 'green'
+                }),
+                MyTitleFactory({
+                  title: 'im out of idea', color: 'pink'
+                })
+            )
+    )
+  }
+})
+
+ReactDOM.render(React.createElement(MyFrirstComponent), document.getElementById('app'))
